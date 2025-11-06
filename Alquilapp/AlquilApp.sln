@@ -1,14 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+<<<<<<< HEAD
 VisualStudioVersion = 17.14.36414.22
+=======
+VisualStudioVersion = 17.14.36414.22 d17.14
+>>>>>>> 77b3ae82cdf80d18c747df740fdf044b953008ab
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlquilApp", "AlquilApp\AlquilApp.csproj", "{A5160FAB-BA91-4569-89A7-8673931BCAFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{EDC20E2B-2840-4038-B985-C8FC8141D458}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{C3D34E29-34DF-4EC7-B8E2-9001E47AE34D}"
 EndProject
+=======
+>>>>>>> 77b3ae82cdf80d18c747df740fdf044b953008ab
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +30,13 @@ Global
 		{EDC20E2B-2840-4038-B985-C8FC8141D458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDC20E2B-2840-4038-B985-C8FC8141D458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDC20E2B-2840-4038-B985-C8FC8141D458}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{C3D34E29-34DF-4EC7-B8E2-9001E47AE34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3D34E29-34DF-4EC7-B8E2-9001E47AE34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3D34E29-34DF-4EC7-B8E2-9001E47AE34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3D34E29-34DF-4EC7-B8E2-9001E47AE34D}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+>>>>>>> 77b3ae82cdf80d18c747df740fdf044b953008ab
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
