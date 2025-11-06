@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Calificacion.cs" />
     <Compile Include="Ciudad.cs" />
+    <Compile Include="CompañiaPago.cs" />
+    <Compile Include="FotoPropiedad.cs" />
+    <Compile Include="MedioPago.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="Pais.cs" />
     <Compile Include="Propiedad.cs" />
