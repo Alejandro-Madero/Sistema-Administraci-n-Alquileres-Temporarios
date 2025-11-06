@@ -1,0 +1,80 @@
+﻿.reservas-page {
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+    min-height: 90vh;
+    padding: 40px 20px;
+}
+
+.reservas-container {
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+}
+
+    .reservas-container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+.mensaje {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.reservas-grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .reservas-grid th {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .reservas-grid td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .reservas-grid tr:hover {
+        background-color: #f5f5f5;
+    }
+
+.btn-cancelar,
+.btn-calificar {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.btn-cancelar {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .btn-cancelar:hover {
+        background-color: #b02a37;
+    }
+
+.btn-calificar {
+    background-color: #17a2b8;
+    color: white;
+}
+
+    .btn-calificar:hover {
+        background-color: #117a8b;
+    }
