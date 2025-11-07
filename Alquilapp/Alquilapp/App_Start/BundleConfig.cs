@@ -67,6 +67,9 @@ namespace AlquilApp
 
             bundles.Add(new StyleBundle("~/Content/editarpropiedad")
         .Include("~/Styles/editarpropiedad.css"));
+
+            BundleTable.EnableOptimizations = false;
+
         }
 
         public static void RegisterJQueryScriptManager()

@@ -44,8 +44,10 @@
     <nav class="nav-links">
         <a runat="server" href="~/Default.aspx" class="nav-item">Inicio</a>
         <a runat="server" href="~/Pages/MisPropiedades.aspx" class="nav-item">Mis Propiedades</a>
-        <a runat="server" href="~/Pages/MisReservas.aspx" class="nav-item">Mis Reservas</a>
-        <a runat="server" href="~/Pages/Login.aspx" class="nav-btn">Ingresar</a>
+        <a runat="server" href="~/Pages/MisReservas.aspx" class="nav-item">Mis Reservas</a>      
+        <asp:LinkButton ID="lnkLogin" runat="server" PostBackUrl="~/Pages/Login.aspx" CssClass="nav-btn">Ingresar</asp:LinkButton>
+        <asp:Label ID="lblUsuario" runat="server" Visible="false"></asp:Label>
+        <asp:LinkButton ID="lnkLogout" runat="server" Text="Salir" onClick="lnkLogout_Click" Visible="false"></asp:LinkButton>
     </nav>
 </header>
 

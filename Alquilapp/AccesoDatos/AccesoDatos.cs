@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace AccesoDatos
+namespace accesoDatos
 {
     public class AccesoDatos
     {
@@ -25,9 +25,9 @@ namespace AccesoDatos
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=ALQUILAPP_DB; integrated security=true;");
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=ALQUILAPP_DB; integrated security=true;");
-
+            //conexion = new SqlConnection("server=.\\SQLEXPRESS; database=ALQUILAPP_DB; integrated security=true;");
+            //conexion = new SqlConnection("server=.\\SQLEXPRESS; database=ALQUILAPP_DB; integrated security=true;");
+            conexion = new SqlConnection("server=192.168.1.17,1433; database=AlQUILAPP_DB;User Id=SA;Password=m^@DfCT8&Y");
             comando = new SqlCommand();
         }
         public void SetearConsulta(string consulta)
@@ -92,6 +92,11 @@ namespace AccesoDatos
         public void setearParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        public void limpiarParametros()
+        {
+            comando.Parameters.Clear();
         }
 
     }

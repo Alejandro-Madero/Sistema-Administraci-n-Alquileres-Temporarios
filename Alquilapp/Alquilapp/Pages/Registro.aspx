@@ -9,9 +9,7 @@
 
     <div class="registro-page">
         <div class="registro-box">
-            <h2>Crear cuenta</h2>
-
-            <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-error" Visible="false"></asp:Label>
+            <h2>Crear cuenta</h2>            
 
             <div class="form-group">
                 <asp:Label Text="Nombre:" runat="server" AssociatedControlID="txtNombre" />
@@ -43,8 +41,11 @@
                 <asp:TextBox ID="txtConfirmar" runat="server" TextMode="Password" CssClass="form-control" placeholder="Repetir contraseña"></asp:TextBox>
             </div>
 
+            
+              <asp:Label Text="" runat="server" ID="lblMensaje" CssClass="mensaje-error" Visible="false"/>             
+ 
             <div class="button-container">
-                <asp:Button ID="btnRegistrar" runat="server" Text="Registrarme" CssClass="btn btn-primary" />
+                <asp:Button ID="btnRegistrar" onClick="btnRegistrar_Click" runat="server" Text="Registrarme" CssClass="btn btn-primary" />
             </div>
 
             <div class="extra-links">

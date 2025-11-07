@@ -23,11 +23,11 @@ namespace dominio
         // Relaciones opcionales
         public Ciudad Ciudad { get; set; }
         public Usuario Anfitrion { get; set; }
-        public List<FotosPropiedad> Fotos { get; set; } = new List<FotosPropiedad>();
+        public List<FotoPropiedad> Fotos { get; set; } = new List<FotoPropiedad>();
         public List<Reserva> Reservas { get; set; } = new List<Reserva>();
 
        
     }
 
 }
-}
+

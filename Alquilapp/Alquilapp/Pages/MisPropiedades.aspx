@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MisPropiedades.aspx.cs" Inherits="AlquilApp.Pages.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-
    <%: Styles.Render("~/Content/mispropiedades") %>
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -30,7 +29,7 @@
             </asp:GridView>
 
             <div class="boton-publicar">
-                <asp:Button ID="btnNuevaPropiedad" runat="server" Text="➕ Publicar nueva propiedad" CssClass="btn btn-primary" PostBackUrl="~/PublicarPropiedad.aspx" />
+                <asp:Button ID="btnNuevaPropiedad" runat="server" Text="➕ Publicar nueva propiedad" CssClass="btn btn-primary" OnClick="btnNuevaPropiedad_Click" PostBackUrl="~/Pages/PublicarPropiedad.aspx" />
             </div>
         </div>
     </div>

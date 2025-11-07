@@ -1,14 +1,18 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AlquilApp._Default" %>
 <asp:Content ID="default" ContentPlaceHolderID="HeadContent" runat="server">
      
-        <%: Styles.Render("~/Content/default") %>
+   
+<link rel="stylesheet" href='<%= ResolveUrl("~/Styles/default.css") %>' />
 
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">       
-    <main class="default-page">  
+    <main class="default-page">
 
-    <h2>Encontrá tu próxima estadía</h2>
+        <div class="container-bienvenida">
+            <asp:Label Text="" ID="lblNombreUsuario" runat="server" />
+            <p> Encontrá tu próxima estadía</p>
+        </div>
 
     <div class="search-container">
         <table class="search-table">

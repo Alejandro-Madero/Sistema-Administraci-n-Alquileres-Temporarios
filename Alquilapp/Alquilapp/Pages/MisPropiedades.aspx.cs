@@ -13,5 +13,10 @@ namespace AlquilApp.Pages
         {
 
         }
+
+        protected void btnNuevaPropiedad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

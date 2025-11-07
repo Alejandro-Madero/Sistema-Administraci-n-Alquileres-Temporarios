@@ -22,7 +22,7 @@
             </div>
 
             <div class="button-container">
-                <asp:Button ID="btnLogin" runat="server" Text="Iniciar sesión" CssClass="btn btn-primary" />
+                <asp:Button ID="btnLogin" runat="server" onClick="btnLogin_Click" Text="Iniciar sesión" CssClass="btn btn-primary" />
             </div>
 
             <div class="extra-links">

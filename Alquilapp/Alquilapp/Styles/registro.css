@@ -71,8 +71,15 @@
             text-decoration: underline;
         }
 
-.mensaje-error {
+.mensaje-error {  
     color: #d9534f;
     margin-bottom: 10px;
     display: block;
+    font-weight: 600;
+}
+
+.mensaje-exito {
+    color: #007700;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
