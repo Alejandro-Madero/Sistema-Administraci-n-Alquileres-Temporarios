@@ -36,6 +36,14 @@ namespace accesoDatos
             comando.CommandText = consulta;
             comando.Parameters.Clear();
         }
+
+        public void SetearStoredProcedure(string nombreSP)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = nombreSP;
+            comando.Parameters.Clear();
+        }
+
         public void ejecutarLectura()
         {
             comando.Connection = conexion;

@@ -14,30 +14,35 @@
                 </p>
             </div>
 
-            <div class="detalle-fotos">
-                <asp:Repeater ID="rptFotos" runat="server">
-                    <ItemTemplate>
-                        <img src='<%# Eval("URL") %>' alt='<%# Eval("Descripcion") %>' class="foto-item" />
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
+        
+                <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <asp:Repeater ID="rptFotos" runat="server">
+                            <ItemTemplate>
+                                <div class='carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>'>
+                                    <img src='<%# Eval("URL") %>' class="carousel-foto" alt='<%# Eval("Descripcion") %>' />
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFotos" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselFotos" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            
 
             <div class="detalle-info">
                 <p><strong>Descripción:</strong> <asp:Label ID="lblDescripcion" runat="server" Text="Una hermosa cabaña con vista al lago."></asp:Label></p>
                 <p><strong>Precio por noche:</strong> $<asp:Label ID="lblPrecioNoche" runat="server" Text="150"></asp:Label></p>
                 <p><strong>Capacidad:</strong> <asp:Label ID="lblCapacidad" runat="server" Text="4"></asp:Label> huéspedes</p>
                 <p><strong>Anfitrión:</strong> <asp:Label ID="lblAnfitrion" runat="server" Text="Alejandro Madero"></asp:Label></p>
-                <div class="detalle-fotos">
-    <asp:Repeater ID="Repeater1" runat="server">
-        <ItemTemplate>
-            <img src='<%# Eval("URL") %>' 
-                 alt='<%# Eval("Descripcion") %>' 
-                 class="foto-item" />
-        </ItemTemplate>
-    </asp:Repeater>
-</div>
-
-            </div>
+         
+             </div>
 
             <div class="detalle-reserva">
                 <h3>Reservar</h3>

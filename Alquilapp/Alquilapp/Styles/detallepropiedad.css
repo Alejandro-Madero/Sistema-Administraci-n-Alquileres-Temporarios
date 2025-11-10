@@ -83,3 +83,34 @@
     margin-top: 10px;
     font-weight: bold;
 }
+
+
+.carouselFotos {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+}
+
+#carouselFotos {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+}
+
+.carousel-foto {
+    width: 100%;
+    min-height: 60vh; 
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(100);
+    opacity: 0.8;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-foto {
+        height: 45vh;
+    }
+}

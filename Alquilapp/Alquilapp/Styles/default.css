@@ -54,3 +54,19 @@
     width: 100%;
     border: 1px solid #ddd;
 }
+
+
+.propiedad-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+    .propiedad-card:hover {
+        transform: scale(1.02);
+    }
+
+.propiedad-img {
+    height: 220px;
+    object-fit: cover;
+}

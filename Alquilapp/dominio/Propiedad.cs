@@ -10,11 +10,12 @@ namespace dominio
     {
 
         public int IdPropiedad { get; set; }
-        public int IdAnfitrion { get; set; }   
+        public Usuario Anfitrion { get; set; }
 
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
         public decimal PrecioNoche { get; set; }
+        public decimal? CalificacionPromedio { get; set; }
         public int Capacidad { get; set; }
         public string TipoPropiedad { get; set; }
         public string Direccion { get; set; }
@@ -22,7 +23,6 @@ namespace dominio
 
         // Relaciones opcionales
         public Ciudad Ciudad { get; set; }
-        public Usuario Anfitrion { get; set; }
         public List<FotoPropiedad> Fotos { get; set; } = new List<FotoPropiedad>();
         public List<Reserva> Reservas { get; set; } = new List<Reserva>();
 

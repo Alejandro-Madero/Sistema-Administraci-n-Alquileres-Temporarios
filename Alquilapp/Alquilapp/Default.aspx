@@ -46,27 +46,35 @@
         </table>
 
         <div class="search-button">
-            <asp:Button ID="btnBuscar" runat="server" Text="🔍 Buscar propiedades" CssClass="btn btn-primary" />
+            <asp:Button ID="btnBuscar" runat="server" onClick="btnBuscar_Click" Text="🔍 Buscar propiedades" CssClass="btn btn-primary" />
         </div>
     </div>
 
     <div class="results-container">
         <h3>Resultados</h3>
-        <asp:GridView ID="gvResultados" runat="server" AutoGenerateColumns="false" CssClass="grid">
-            <Columns>
-                <asp:BoundField DataField="Titulo" HeaderText="Propiedad" />
-                <asp:BoundField DataField="Ciudad" HeaderText="Ciudad" />
-                <asp:BoundField DataField="PrecioNoche" HeaderText="Precio por noche" DataFormatString="{0:C}" />
-                <asp:BoundField DataField="Capacidad" HeaderText="Capacidad" />
-                <asp:TemplateField HeaderText="Acción">
-                    <ItemTemplate>
-                        <asp:Button ID="btnVerDetalle" runat="server" Text="Ver detalle" CommandName="VerDetalle" CommandArgument='<%# Eval("idPropiedad") %>' />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
+        <asp:GridView ID="gvResultados" runat="server" OnRowDataBound="gvResultados_RowDataBound" OnRowCommand="gvResultados_RowCommand"
+            AutoGenerateColumns="false" CssClass="table table-striped">
+         <Columns>
+        <asp:BoundField DataField="Titulo" HeaderText="Título" />
+        <asp:BoundField DataField="TipoPropiedad" HeaderText="Tipo" />
+        <asp:BoundField DataField="Ciudad.Nombre" HeaderText="Ciudad" />
+        <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+        <asp:BoundField DataField="Capacidad" HeaderText="Capacidad Personas" />
+        <asp:BoundField DataField="PrecioNoche" HeaderText="Precio por noche" DataFormatString="{0:C}" />
+        <asp:BoundField DataField="CalificacionPromedio" HeaderText="Calificación Promedio" DataFormatString="{0:0.##}" />
+             <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:Button ID="btnVerMas" runat="server"
+                                Text="Ver más"
+                                CssClass="btn btn-primary btn-sm"
+                                CommandName="VerMas"
+                                CommandArgument='<%# Eval("IdPropiedad") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
+    </Columns>
         </asp:GridView>
-    </div>
 
+    </div>
     </main>
 
 </asp:Content>
