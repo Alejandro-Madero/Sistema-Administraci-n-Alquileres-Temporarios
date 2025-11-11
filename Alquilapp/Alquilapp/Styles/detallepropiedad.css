@@ -97,7 +97,8 @@
 
 .carousel-foto {
     width: 100%;
-    min-height: 60vh; 
+    min-height: 60vh;
+    height: 60vh;
     object-fit: cover;
     border-radius: 12px;
 }

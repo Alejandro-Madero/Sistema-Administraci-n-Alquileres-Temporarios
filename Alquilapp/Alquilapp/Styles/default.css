@@ -70,3 +70,11 @@
     height: 220px;
     object-fit: cover;
 }
+
+
+.mensaje-error {
+    color: #d9534f;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 600;
+}

@@ -45,9 +45,14 @@
         <a runat="server" href="~/Default.aspx" class="nav-item">Inicio</a>
         <a runat="server" href="~/Pages/MisPropiedades.aspx" class="nav-item">Mis Propiedades</a>
         <a runat="server" href="~/Pages/MisReservas.aspx" class="nav-item">Mis Reservas</a>      
-        <asp:LinkButton ID="lnkLogin" runat="server" PostBackUrl="~/Pages/Login.aspx" CssClass="nav-btn">Ingresar</asp:LinkButton>
+        <asp:Button ID="lnkLogin" runat="server" PostBackUrl="~/Pages/Login.aspx" CssClass="btn btn-primary" Text="Ingresar"/>
         <asp:Label ID="lblUsuario" runat="server" Visible="false"></asp:Label>
-        <asp:LinkButton ID="lnkLogout" runat="server" Text="Salir" onClick="lnkLogout_Click" Visible="false"></asp:LinkButton>
+        <asp:LinkButton ID="lnkLogout" runat="server" Text="Salir" onClick="lnkLogout_Click" Visible="false" CssClass="btn btn-warning"/>
+
+        <button id="btnDesactivar" type="button"  runat="server" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalDesactivarCuenta" visible="false">
+            Desactivar cuenta     
+        </button>
+
     </nav>
 </header>
 
@@ -58,9 +63,30 @@
                 <p>&copy; <%: DateTime.Now.Year %> AlquilAPP</p>
             </footer>
     
+            <!-- Modal -->
+<div class="modal fade" id="ModalDesactivarCuenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Acción</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Esta acción desactivará su cuenta. Para reactivarla deberá contactar al administrador. ¿Desea desactivar su cuenta?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <asp:Button ID="btnConfirmarDesactivarCuenta" runat="server" onClick="btnConfirmarDesactivarCuenta_Click" Text="Desactivar cuenta" CssClass="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+</div>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+
     </asp:PlaceHolder>
+
+
 </body>
 </html>

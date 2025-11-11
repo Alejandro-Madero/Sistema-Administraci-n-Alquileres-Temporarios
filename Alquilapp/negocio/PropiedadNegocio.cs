@@ -20,8 +20,10 @@ namespace negocio
 
             try
             {
+
+                string ciudadLike = "%" + ciudad + "%";
                 datos.SetearStoredProcedure("sp_ListarPropiedadesDisponibles");
-                datos.setearParametro("@Ciudad", ciudad);
+                datos.setearParametro("@Ciudad", ciudadLike);
                 datos.setearParametro("@Capacidad", capacidad);
                 datos.setearParametro("@FechaInicio", fechaInicio);
                 datos.setearParametro("@FechaFin", fechaFin);

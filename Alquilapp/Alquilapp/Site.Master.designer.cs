@@ -30,7 +30,7 @@ namespace AlquilApp
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLogin;
+        protected global::System.Web.UI.WebControls.Button lnkLogin;
 
         /// <summary>
         /// lblUsuario control.
@@ -51,6 +51,15 @@ namespace AlquilApp
         protected global::System.Web.UI.WebControls.LinkButton lnkLogout;
 
         /// <summary>
+        /// btnDesactivar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnDesactivar;
+
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace AlquilApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+
+        /// <summary>
+        /// btnConfirmarDesactivarCuenta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmarDesactivarCuenta;
     }
 }

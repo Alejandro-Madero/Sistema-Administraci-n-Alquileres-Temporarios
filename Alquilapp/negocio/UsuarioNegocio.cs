@@ -96,6 +96,28 @@ namespace negocio
             }
         }
         
+        public void DesactivarCuenta(int idUsuario)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearStoredProcedure("sp_desactivarCuenta");
+                datos.setearParametro("@idUsuario", idUsuario);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("No se pudo desactivar el usuario " + ex.Message);
+            }finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
 
     }
 }

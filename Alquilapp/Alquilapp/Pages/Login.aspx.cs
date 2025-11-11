@@ -18,7 +18,8 @@ namespace AlquilApp.Pages.Usuarios
                 Response.Redirect("~/Default.aspx");
                 return;
             }
-        }
+
+       }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {           
@@ -30,13 +31,22 @@ namespace AlquilApp.Pages.Usuarios
             if(usuario != null)
             {
                 Session.Add("usuario", usuario);
+
+                if (Request.QueryString["return_url"] == null)
+                {
                 Response.Redirect("~/Default.aspx");
-            }
-            else
-            {
-                txtEmail.Text = "Error";
-                txtPassword.Text = "Error";
-            }
+                }
+                else
+                {
+                    Response.Redirect(HttpUtility.UrlDecode(Request.QueryString["return_url"]));
+                }
+
+            }            
+                else
+                    {
+                        txtEmail.Text = "Error";
+                        txtPassword.Text = "Error";
+                    }
         }
     }
 }

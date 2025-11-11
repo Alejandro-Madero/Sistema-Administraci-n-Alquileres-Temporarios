@@ -23,12 +23,12 @@
                 </td>
 
                 <td>
-                    <asp:Label Text="Fecha de inicio:" runat="server" /><br />
+                    <asp:Label Text="Fecha de Check-in:" runat="server" /><br />
                     <asp:TextBox ID="txtFechaInicio" runat="server" TextMode="Date" CssClass="form-control" Width="95%"></asp:TextBox>
                 </td>
 
                 <td>
-                    <asp:Label Text="Fecha de fin:" runat="server" /><br />
+                    <asp:Label Text="Fecha de Check-out:" runat="server" /><br />
                     <asp:TextBox ID="txtFechaFin" runat="server" TextMode="Date" CssClass="form-control" Width="95%"></asp:TextBox>
                 </td>
 
@@ -48,6 +48,8 @@
         <div class="search-button">
             <asp:Button ID="btnBuscar" runat="server" onClick="btnBuscar_Click" Text="🔍 Buscar propiedades" CssClass="btn btn-primary" />
         </div>
+                  <asp:Label Text="" runat="server" ID="lblMensaje" CssClass="mensaje-error" Visible="false"/>             
+
     </div>
 
     <div class="results-container">

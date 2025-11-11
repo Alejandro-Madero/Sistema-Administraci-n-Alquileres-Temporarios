@@ -25,16 +25,41 @@ namespace AlquilApp
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            
             PropiedadNegocio negocio = new PropiedadNegocio();
             string ciudad = txtCiudad.Text.Trim();
             string capacidad = ddlHuespedes.SelectedValue;
+            
+            if (string.IsNullOrEmpty(ciudad) || string.IsNullOrEmpty(capacidad) || string.IsNullOrEmpty(txtFechaInicio.Text.Trim()) || string.IsNullOrEmpty(txtFechaFin.Text.Trim())){
+               
+                lblMensaje.Text = "Todos los datos deben ser completados";
+                lblMensaje.Visible = true;
+                return;
+            }
+
             DateTime fechaInicio = DateTime.Parse(txtFechaInicio.Text.Trim());
             DateTime fechaFin = DateTime.Parse(txtFechaFin.Text.Trim()).Date;
-          
+
+            if(fechaFin <= fechaInicio)
+            {
+                lblMensaje.Text = "La fecha de Check-out no puede ser anterior o igual a la fecha de Check-in";
+                lblMensaje.Visible = true;
+                return;
+            }
+            try
+            {
             List<Propiedad> propiedadesDisponibles = negocio.ListarPropiedades(ciudad, capacidad, fechaInicio, fechaFin);
             gvResultados.DataSource = propiedadesDisponibles;
             gvResultados.DataBind();
+            lblMensaje.Visible=false;
 
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("No se pudieron obtener los datos" + ex.Message);
+            }
         }
 
         protected void gvResultados_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -57,7 +82,7 @@ namespace AlquilApp
             if (e.CommandName == "VerMas")
             {
                 string idPropiedad = e.CommandArgument.ToString();
-                Response.Redirect("~/Pages/DetallePropiedad.aspx?idPropiedad=" + idPropiedad);
+                Response.Redirect("~/Pages/DetallePropiedad.aspx?idPropiedad=" + idPropiedad+"&fechaInicio=" + txtFechaInicio.Text + "&fechaFin="+ txtFechaFin.Text);
             }
         }
     }
