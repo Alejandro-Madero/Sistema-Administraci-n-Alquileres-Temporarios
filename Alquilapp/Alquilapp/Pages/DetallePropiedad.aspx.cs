@@ -41,6 +41,7 @@ namespace AlquilApp.Pages
             DateTime fechaInicio = DateTime.Parse(Request.QueryString["fechaInicio"]);
             DateTime fechaFin = DateTime.Parse(Request.QueryString["fechaFin"]);
             TimeSpan diffFechas = fechaFin - fechaInicio;
+            int cantidadHuespedes = int.Parse(Request.QueryString["huespedes"]);
 
             decimal montoTotal = diffFechas.Days * propiedad.PrecioNoche;
 
@@ -57,12 +58,16 @@ namespace AlquilApp.Pages
             lblAnfitrion.Text = propiedad.Anfitrion.Nombre + " " + propiedad.Anfitrion.Apellido;
             lblNoches.Text = diffFechas.Days.ToString();
             lblMontoTotal.Text = montoTotal.ToString("0.00");
+            lblCantidadHuespedes.Text = cantidadHuespedes.ToString();
 
             return propiedad;
         }
-
+       
         protected void btnReservar_Click(object sender, EventArgs e)
         {
+
+            PropiedadNegocio negocio  = new PropiedadNegocio();
+
             if (Session["usuario"] == null)
             {
                 string returnUrl = Request.RawUrl;
@@ -102,13 +107,27 @@ namespace AlquilApp.Pages
                     diffFechas = fechaFin - fechaInicio;
                 }
 
+                Usuario usuario = (Usuario)Session["usuario"];
 
                 decimal montoTotal = diffFechas.Days * propiedad.PrecioNoche;
+                int idPropiedad = int.Parse(Request.QueryString["idPropiedad"]);
+                int huespedes = int.Parse(lblCantidadHuespedes.Text);
+                negocio.ReservarPropiedad(idPropiedad, huespedes, fechaInicio, fechaFin, usuario);
+                lblMensaje.Text = "La propiedad fue reservada exitosamente";
+                lblMensaje.CssClass = "mensaje-exito";
+                lblMensaje.Visible = true;
+
+
+                
+
             }
             catch (Exception ex)
             {
 
-                throw new Exception("No se pudo reservar" + ex.Message);
+                lblMensaje.Text = "La reserva no pudo ser realizada" + ex.Message;
+                lblMensaje.Visible = true;
+                lblMensaje.CssClass = "mensaje-error";
+                
             }
 
 

@@ -109,6 +109,22 @@
     opacity: 0.8;
 }
 
+.mensaje-error {
+    color: #d9534f;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 600;
+}
+
+.mensaje-exito {
+    color: #218838;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 600;
+}
+
+
+
 
 @media (max-width: 768px) {
     .carousel-foto {

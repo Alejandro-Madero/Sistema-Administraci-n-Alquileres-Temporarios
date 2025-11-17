@@ -9,7 +9,6 @@
         <div class="login-box">
             <h2>Iniciar sesión</h2>
 
-            <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-error" Visible="false"></asp:Label>
 
             <div class="form-group">
                 <asp:Label Text="Email:" runat="server" AssociatedControlID="txtEmail" />
@@ -24,6 +23,7 @@
             <div class="button-container">
                 <asp:Button ID="btnLogin" runat="server" onClick="btnLogin_Click" Text="Iniciar sesión" CssClass="btn btn-primary" />
             </div>
+            <asp:Label ID="lblMensaje" runat="server" CssClass="mensaje-error" Visible="false"></asp:Label>
 
             <div class="extra-links">
                 <a href="Registro.aspx">¿No tenés cuenta? Registrate</a>

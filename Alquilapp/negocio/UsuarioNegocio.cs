@@ -21,13 +21,21 @@ namespace negocio
 
             try
             {
-                datos.SetearConsulta("SELECT * FROM USUARIOS WHERE Email = @email AND Contraseña = @password AND Activo = 1");
+                datos.SetearConsulta("SELECT * FROM USUARIOS WHERE Email = @email AND Contraseña = @password");
                 datos.setearParametro("@email", email);
                 datos.setearParametro("@password", password);
                 datos.ejecutarLectura();
 
                 if (datos.Lector.Read())
                 {
+
+                    bool activo = (bool)datos.Lector["Activo"];
+
+                    if (activo == false)
+                    {
+                        throw new Exception("Usuario desactivado, debe contactar al administrador para reactivarlo.");
+
+                    }
                     Usuario usuario = new Usuario();
                     usuario.IdUsuario = (int)datos.Lector["idUsuario"];
                     usuario.Nombre = (string)datos.Lector["Nombre"];

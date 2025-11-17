@@ -65,6 +65,7 @@
                 <p><strong>Noches:</strong>
                     <asp:Label ID="lblNoches" runat="server" /></p>
                 <p><strong>Total:</strong> $<asp:Label ID="lblMontoTotal" runat="server" /></p>
+                <p><strong>Huéspedes:</strong> <asp:Label ID="lblCantidadHuespedes" runat="server" /></p>
 
                 <asp:Button ID="btnReservar" runat="server" OnClick="btnReservar_Click" Text="Reservar ahora" CssClass="btn btn-success" />
 

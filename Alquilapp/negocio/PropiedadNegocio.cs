@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using dominio;
 using accesoDatos;
+using System.Diagnostics.Eventing.Reader;
 
 namespace negocio
 {
     public class PropiedadNegocio
     {
 
-
+        private AccesoDatos datos;
         public List<Propiedad> ListarPropiedades(string ciudad, string capacidad, DateTime fechaInicio, DateTime fechaFin)
         {
 
-            AccesoDatos datos = new AccesoDatos();
+            datos = new AccesoDatos();
             List<Propiedad> propiedadesDisponibles = new List<Propiedad>();
 
             try
@@ -72,7 +73,7 @@ namespace negocio
         public Propiedad ObtenerDetallePropiedad(int idPropiedad)
         {
 
-            AccesoDatos datos = new AccesoDatos();
+            datos = new AccesoDatos();
 
             try
             {
@@ -117,11 +118,11 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
-        }   
+        }
         public List<FotoPropiedad> ObtenerFotosPropiedad(int idPropiedad)
         {
 
-            AccesoDatos datos = new AccesoDatos();
+            datos = new AccesoDatos();
             List<FotoPropiedad> fotosPropiedad = new List<FotoPropiedad>();
             try
             {
@@ -155,7 +156,31 @@ namespace negocio
 
         }
 
-    }       
-    
+
+        public void ReservarPropiedad(int idPropiedad, int cantidadHuespedes, DateTime fechaInicio, DateTime fechaFin, Usuario usuario)
+        {
+            datos = new AccesoDatos();
+
+
+            try
+            {
+            datos.SetearStoredProcedure("sp_realizarReserva");
+            datos.setearParametro("@idPropiedad", idPropiedad);
+            datos.setearParametro("@FechaInicio", fechaInicio);
+            datos.setearParametro("@FechaFin", fechaFin);
+            datos.setearParametro("@CantidadHuespedes", cantidadHuespedes);
+            datos.setearParametro("@idHuesped",usuario.IdUsuario);
+            datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("No se pudo realizar la reserva" + ex.Message);
+            }
+        }
+    }
+
 }
 

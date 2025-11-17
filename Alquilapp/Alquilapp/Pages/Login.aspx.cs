@@ -19,34 +19,43 @@ namespace AlquilApp.Pages.Usuarios
                 return;
             }
 
-       }
+        }
 
         protected void btnLogin_Click(object sender, EventArgs e)
-        {           
-           UsuarioNegocio negocioUsuario = new UsuarioNegocio();
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
-            Usuario usuario = negocioUsuario.Login(email, password);
+        {
+            UsuarioNegocio negocioUsuario = new UsuarioNegocio();
 
-            if(usuario != null)
+            lblMensaje.Text = "";
+            lblMensaje.Visible = false;
+
+            try
             {
-                Session.Add("usuario", usuario);
+                string email = txtEmail.Text;
+                string password = txtPassword.Text;
+                Usuario usuario = negocioUsuario.Login(email, password);
 
-                if (Request.QueryString["return_url"] == null)
+                if (usuario != null)
                 {
-                Response.Redirect("~/Default.aspx");
-                }
-                else
-                {
-                    Response.Redirect(HttpUtility.UrlDecode(Request.QueryString["return_url"]));
-                }
+                    Session.Add("usuario", usuario);
 
-            }            
-                else
+                    if (Request.QueryString["return_url"] == null)
                     {
-                        txtEmail.Text = "Error";
-                        txtPassword.Text = "Error";
+                        Response.Redirect("~/Default.aspx");
                     }
+                    else
+                    {
+                        Response.Redirect(HttpUtility.UrlDecode(Request.QueryString["return_url"]));
+                    }
+
+                }                
+
+            }
+            catch (Exception ex)
+            {
+
+               lblMensaje.Text = ex.Message;
+                lblMensaje.Visible = true;
+            }
         }
     }
 }

@@ -39,10 +39,18 @@ namespace AlquilApp
 
             DateTime fechaInicio = DateTime.Parse(txtFechaInicio.Text.Trim());
             DateTime fechaFin = DateTime.Parse(txtFechaFin.Text.Trim()).Date;
+            DateTime fechaHoy = DateTime.Today;
 
             if(fechaFin <= fechaInicio)
             {
                 lblMensaje.Text = "La fecha de Check-out no puede ser anterior o igual a la fecha de Check-in";
+                lblMensaje.Visible = true;
+                return;
+            }
+
+            if(fechaInicio < fechaHoy)
+            {
+                lblMensaje.Text = "No se puede reservar fechas del pasado.";
                 lblMensaje.Visible = true;
                 return;
             }
@@ -82,7 +90,7 @@ namespace AlquilApp
             if (e.CommandName == "VerMas")
             {
                 string idPropiedad = e.CommandArgument.ToString();
-                Response.Redirect("~/Pages/DetallePropiedad.aspx?idPropiedad=" + idPropiedad+"&fechaInicio=" + txtFechaInicio.Text + "&fechaFin="+ txtFechaFin.Text);
+                Response.Redirect("~/Pages/DetallePropiedad.aspx?idPropiedad=" + idPropiedad+"&fechaInicio=" + txtFechaInicio.Text + "&fechaFin="+ txtFechaFin.Text + "&huespedes=" + ddlHuespedes.SelectedValue);
             }
         }
     }

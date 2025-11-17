@@ -70,7 +70,7 @@ textarea {
     color: white;
     padding: 8px 16px;
     border-radius: 6p
-    
+}
         /* Responsive: Portrait tablets and up */
     @media screen and (min-width: 768px) {
     .body-content {
