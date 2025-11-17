@@ -649,28 +649,28 @@ GO
 -- ===========================
 -- RESERVAS
 -- ===========================
-INSERT INTO Reservas (idPropiedad, idHuesped, FechaInicio, FechaFin, Monto, EstadoReserva, FechaCreacion)
+INSERT INTO Reservas (idPropiedad, idHuesped, FechaInicio, FechaFin, Monto, EstadoReserva, FechaCreacion, CantidadHuespedes)
 VALUES
-(1, 6, '2025-11-15', '2025-11-20', 425.00, 'Finalizada', GETDATE()),
-(2, 7, '2025-12-01', '2025-12-05', 300.00, 'Confirmada', GETDATE()),
-(3, 8, '2025-12-10', '2025-12-15', 550.00, 'Pendiente', GETDATE()),
-(4, 9, '2025-11-28', '2025-12-02', 380.00, 'Finalizada', GETDATE()),
-(5, 10, '2025-12-20', '2025-12-25', 1000.00, 'Confirmada', GETDATE()),
-(6, 7, '2025-12-28', '2026-01-03', 900.00, 'Pendiente', GETDATE()),
-(7, 8, '2025-11-05', '2025-11-10', 475.00, 'Finalizada', GETDATE()),
-(8, 9, '2025-12-12', '2025-12-18', 1320.00, 'Cancelada', GETDATE());
+(1, 6, '2025-11-15', '2025-11-20', 425.00, 'Finalizada', GETDATE(),2),
+(2, 7, '2025-12-01', '2025-12-05', 300.00, 'Confirmada', GETDATE(),2),
+(3, 8, '2025-12-10', '2025-12-15', 550.00, 'Pendiente', GETDATE(),1),
+(4, 9, '2025-11-28', '2025-12-02', 380.00, 'Finalizada', GETDATE(),2),
+(5, 10, '2025-12-20', '2025-12-25', 1000.00, 'Confirmada', GETDATE(),1),
+(6, 7, '2025-12-28', '2026-01-03', 900.00, 'Pendiente', GETDATE(),2),
+(7, 8, '2025-11-05', '2025-11-10', 475.00, 'Finalizada', GETDATE(),2),
+(8, 9, '2025-12-12', '2025-12-18', 1320.00, 'Cancelada', GETDATE(),3);
 GO
 
 -- ===========================
 -- PAGOS
 -- ===========================
-INSERT INTO Pagos (idReserva, idMedioPago, Monto, EstadoPago, NFactura)
+INSERT INTO Pagos (idReserva, idMedioPago, idCompañia, Monto, EstadoPago, NFactura)
 VALUES
-(1, 1, 425.00, 'Aprobado', 'FAC-0001'),
-(2, 2, 300.00, 'Aprobado', 'FAC-0002'),
-(4, 3, 380.00, 'Aprobado', 'FAC-0003'),
-(5, 4, 1000.00, 'Pendiente', 'FAC-0004'),
-(7, 1, 475.00, 'Aprobado', 'FAC-0005');
+(1, 1, 1,425.00, 'Aprobado', 'FAC-0001'),
+(2, 2, 2,300.00, 'Aprobado', 'FAC-0002'),
+(4, 3, 1,380.00, 'Aprobado', 'FAC-0003'),
+(5, 4, 1,1000.00, 'Pendiente', 'FAC-0004'),
+(7, 1, 2,475.00, 'Aprobado', 'FAC-0005');
 GO
 
 -- ===========================
@@ -699,4 +699,5 @@ VALUES
 (7, 'Bosque andino', 'https://a0.muscache.com/im/pictures/2b6e4a7b-f847-4745-a687-56260882ce38.jpg?im_w=1440'),
 (8, 'Casa en la playa', 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NDYxNTI2NTM4MjU4MTMwOQ%3D%3D/original/468e3fad-ebc5-4a16-b236-b71100703c69.jpeg?im_w=1440');
 GO
+
 
